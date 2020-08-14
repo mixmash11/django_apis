@@ -1,5 +1,4 @@
 #!/bin/bash
-#### fix_permissions.sh
-#### Description: fixes all permissions in the current directory and lower
+#### Description: fixes all permissions in the current directory and sub-directories
 #### NOTE: requires sudo access
 sudo chmod -R a+rwx .
