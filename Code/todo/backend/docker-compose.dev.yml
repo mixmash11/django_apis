@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web: &web
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    environment:
+      - DATABASE_URL=postgres://postgres:pg_password@db/postgres
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pg_password
+    volumes:
+      - /var/lib/postgresql/data_todo:/var/lib/postgresql/data
