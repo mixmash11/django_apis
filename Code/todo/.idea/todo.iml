@@ -13,7 +13,9 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/backend/.pytest_cache" />
+    </content>
     <orderEntry type="jdk" jdkName="Remote Python 3.8.2 Docker Compose (web at [/home/mixmash11/Courses/Django_for_APIs/Code/todo/backend/docker-compose.dev.yml])" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
