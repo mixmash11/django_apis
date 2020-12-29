@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  drf:
+    build: ./backend
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    environment:
+      - DATABASE_URL=postgres://postgres:pg_password@db/postgres
+    volumes:
+      - ./backend:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    networks:
+      - drfreact
+      - drfdb
+  db:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pg_password
+    volumes:
+      - /var/lib/postgresql/data_todo:/var/lib/postgresql/data
+    networks:
+      - drfdb
+  web:
+    build: ./frontend
+    command: npm start
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
+      - 9229:9229
+    stdin_open: true
+    depends_on:
+      - drf
+    networks:
+      - drfreact
+
+networks:
+  drfreact:
+  drfdb:

@@ -26,7 +26,7 @@ SECRET_KEY = "-9(o9+pu2(73hyfx$fl*5d9l$8$p1uiwp*7%724%+-)14!pr-1"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
@@ -117,8 +117,4 @@ STATIC_URL = "/static/"
 
 REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"]}
 
-CORS_ORIGIN_WHITELIST = (
-    "http://react:3000",
-    "http://localhost:8000",
-    "http://localhost:3000",
-)
+CORS_ORIGIN_WHITELIST = ("http://localhost:8000", "http://localhost:3000")
